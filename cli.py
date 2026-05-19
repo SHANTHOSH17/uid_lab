@@ -1,53 +1,36 @@
 import os
 
-print("===== FILE MANAGER =====")
-print("1. Create File")
-print("2. Delete File")
-print("3. Rename File")
+print("1.Create")
+print("2.Delete")
+print("3.Rename")
 
-choice = input("Enter your choice (1-3): ")
+choice = input("Enter choice: ")
 
-# CREATE FILE
+# CREATE
 if choice == "1":
-    filename = input("Enter filename to create: ")
+    filename = input("Enter filename: ")
 
-    try:
-        with open(filename, "w") as file:
-            file.write("")
+    with open(filename, "w") as file:
+        file.write("")
 
-        print(f"{filename} created successfully!")
+    print("File Created")
 
-    except Exception as e:
-        print("Error:", e)
-
-# DELETE FILE
+# DELETE
 elif choice == "2":
-    filename = input("Enter filename to delete: ")
+    filename = input("Enter filename: ")
 
-    try:
-        os.remove(filename)
-        print(f"{filename} deleted successfully!")
+    os.remove(filename)
 
-    except FileNotFoundError:
-        print("File not found!")
+    print("File Deleted")
 
-    except Exception as e:
-        print("Error:", e)
-
-# RENAME FILE
+# RENAME
 elif choice == "3":
-    old_name = input("Enter old filename: ")
-    new_name = input("Enter new filename: ")
+    old = input("Old filename: ")
+    new = input("New filename: ")
 
-    try:
-        os.rename(old_name, new_name)
-        print(f"{old_name} renamed to {new_name}")
+    os.rename(old, new)
 
-    except FileNotFoundError:
-        print("File not found!")
-
-    except Exception as e:
-        print("Error:", e)
+    print("File Renamed")
 
 else:
-    print("Invalid Choice!")
+    print("Invalid Choice")
